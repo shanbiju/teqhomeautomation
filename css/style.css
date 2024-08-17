@@ -39,44 +39,6 @@
 
 /* HTML: <div class="loader"></div> */
 
-/*** Spinner ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
-}
-
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
-}
-/*** Service ***/
-.service-item {
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
-}
-
-.service-iconn {
-    position: relative;
-    margin: -50px 0 25px 0;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    background: #FFFFFF;
-    border-radius: 100px;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
-    transition: .5s;
-}
-
-.service-item:hover .service-iconn {
-    color: #FFFFFF;
-    background: var(--primary);
-}
-
 
 
 
@@ -478,6 +440,11 @@ button {
     float: left;
     margin-top: 90px;
 }
+.services_section_3 {
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+}
 
 .services_img {
     width: 100%;
@@ -494,14 +461,14 @@ button {
 .btn_main a {
     width: 100%;
     float: left;
-    font-size: 16px;
+    
     color: #ffffff;
     background-color: #2b2278;
     text-align: center;
     padding: 10px 0px;
     border-radius: 30px;
-    font-weight: bold;
-    margin-top: 40px;
+    
+    margin-top: 20px;
     text-transform: uppercase;
 }
 
@@ -1071,126 +1038,6 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /********** Template CSS **********/
 :root {
     --primary:  #32bcc3;
@@ -1283,19 +1130,6 @@ section {
   
 
 
-/*** Spinner ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
-}
-
-#spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
-}
 
 
 /*** Button ***/
@@ -1333,72 +1167,6 @@ section {
     justify-content: center;
     font-weight: normal;
 }
-
-/*** Navbar ***/
-.navbar.sticky-top {
-    top: -100px;
-    transition: .5s;
-}
-
-.navbar .navbar-brand,
-.navbar a.btn {
-    height: 75px;
-}
-
-.navbar .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
-    color: var(--dark);
-    font-size: 15px;
-    font-weight: 500;
-    text-transform: uppercase;
-    outline: none;
-}
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
-}
-
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
-}
-
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link  {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .navbar .navbar-nav {
-        border-top: 1px solid #EEEEEE;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
-}
-
 
 /*** Header ***/
 .owl-carousel-inner {
@@ -2007,3 +1775,139 @@ section {
     color: #1f1f1f;
     font-weight: bold;
 }
+
+.rounded-1 {
+    border-radius: 10px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+
+}
+
+
+.read_bt_11 {
+    width: auto;
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #000d10;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 30px;
+    margin-top: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.services_img {
+    width: 100%;
+    float: left;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
