@@ -91,58 +91,125 @@
 
     Create Access Key here 👉 https://web3forms.com/
  -->
-
-<section class="contact-section">
+ <section class="contact-section">
    <div class="contact-intro">
       <h1 class="contact_taital">Request A Call Back</h1>
-     <p class="contact-description">
-       Fill out the form below and we'll get back to you as soon as possible.
-     </p>
+      <p class="contact-description">
+         Fill out the form below, and we'll get back to you as soon as possible.
+      </p>
    </div>
- 
-   <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
- 
-     <input type="hidden" name="access_key" value="0889a055-0e1e-422b-8063-d750b7cd0b4f" />
-     <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
-     <input type="hidden" name="from_name" value="My Website" />
-     
- 
-     <div class="form-group-container">
-       <div class="form-group">
-         <label for="name" class="form-label">Name</label>
-         <input id="name" name="name" class="form-input" placeholder="Your name" type="text" />
-       </div>
-       <div class="form-group">
-         <label for="email" class="form-label">Email</label>
-         <input id="email" name="email" class="form-input" placeholder="Your email" type="email" />
-       </div>
-       <div class="form-group">
-         <label for="phone" class="form-label">Phone</label>
-         <input id="phone" name="phone" class="form-input" placeholder="Your number" type="text" />
-       </div>
-       <div class="form-group">
-         <label for="message" class="form-label">Message</label>
-         <textarea class="form-textarea" id="message" name="message" placeholder="Your message"></textarea>
-       </div>
-     </div>
-     <button class="form-submit" type="submit">Send Message</button>
+
+   <form class="contact-form" onsubmit="sendWhatsAppMessage(event)">
+      <div class="form-group-container">
+         <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" name="name" class="form-input" placeholder="Your name" type="text" required />
+         </div>
+         <div class="form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input id="phone" name="phone" class="form-input" placeholder="Your number" type="text" required />
+         </div>
+
+         <!-- Custom Dropdown Checkbox List for Enquiry -->
+         <div class="form-group">
+            <label>Enquiry Type</label>
+            <div id="enquiryDropdown" class="dropdown-check-list" tabindex="100">
+               <span class="anchor">Select Enquiry</span>
+               <ul class="items">
+                  <li><input type="checkbox" value="CCTV Installation" /> CCTV Installation</li>
+                  <li><input type="checkbox" value="Solar Installation" /> Solar Installation</li>
+                  <li><input type="checkbox" value="Other" /> Other</li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Your message" required></textarea>
+         </div>
+      </div>
+      <button class="form-submit" type="submit">Send Message</button>
    </form>
- 
- </section>
+</section>
 
+<!-- JavaScript -->
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      let checkList = document.getElementById("enquiryDropdown");
+      checkList.getElementsByClassName("anchor")[0].onclick = function (evt) {
+         if (checkList.classList.contains("visible"))
+            checkList.classList.remove("visible");
+         else
+            checkList.classList.add("visible");
+      };
+   });
 
+   function sendWhatsAppMessage(event) {
+      event.preventDefault();
+      let name = document.getElementById("name").value;
+      let phone = document.getElementById("phone").value;
+      let message = document.getElementById("message").value;
 
+      // Get selected enquiry options
+      let selectedEnquiries = [];
+      document.querySelectorAll("#enquiryDropdown .items input:checked").forEach((checkbox) => {
+         selectedEnquiries.push(checkbox.value);
+      });
 
+      if (selectedEnquiries.length === 0) {
+         alert("Please select at least one enquiry type.");
+         return;
+      }
 
+      let whatsappNumber ="9744906124"; // Replace with your actual WhatsApp number
+      let enquiryText = selectedEnquiries.join(", "); // Convert selected options to a comma-separated list
 
+      let whatsappURL = `https://wa.me/${whatsappNumber}?text=Hello, my name is ${encodeURIComponent(name)}.%0A
+      My phone number is ${encodeURIComponent(phone)}.%0A
+      Enquiry Type: ${encodeURIComponent(enquiryText)}.%0A
+      Message: ${encodeURIComponent(message)}`;
 
+      window.open(whatsappURL, "_blank");
+   }
+</script>
 
-     
-
-
-
-
-
+<!-- CSS -->
+<style>
+   .dropdown-check-list {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+   }
+   .dropdown-check-list .anchor {
+      width: 100%;
+      display: block;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      cursor: pointer;
+   }
+   .dropdown-check-list .items {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background: #fff;
+      border: 1px solid #ccc;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 150px;
+      overflow-y: auto;
+   }
+   .dropdown-check-list.visible .items {
+      display: block;
+   }
+   .dropdown-check-list .items li {
+      padding: 8px;
+   }
+   .dropdown-check-list .items input {
+      margin-right: 5px;
+   }
+</style>
 
 
 
